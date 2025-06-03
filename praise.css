@@ -1,0 +1,234 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+body {
+  background: linear-gradient(180deg, #000000, #0f172a);
+  color: #e0e7ff;
+  line-height: 1.6;
+  transition: background 0.3s, color 0.3s;
+}
+body.light-mode {
+  background: linear-gradient(180deg, #ffffff, #e2e8f0);
+  color: #1e293b;
+}
+nav {
+  background: #0f172a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+  flex-wrap: wrap;
+}
+.nav-links {
+  display: flex;
+  gap: 1rem;
+}
+.nav-links a {
+  color: #e0e7ff;
+  text-decoration: none;
+  font-weight: 600;
+}
+.nav-links a:hover{
+  color: #1e40af;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 4px;
+}
+.menu-toggle span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  border-radius: 2px;
+}
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toggle-switch {
+  position: relative;
+  width: 50px;
+  height: 25px;
+  background: #1e40af;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.toggle-switch::after {
+  content: '';
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 19px;
+  height: 19px;
+  background: white;
+  border-radius: 50%;
+  transition: left 0.3s;
+}
+.toggle-switch.active {
+  background: #93c5fd;
+}
+.toggle-switch.active::after {
+  left: 28px;
+}
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #1e293b;
+    padding: 1rem;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .menu-toggle {
+    display: flex;
+  }
+}
+header {
+  background: #1e3a8a;
+  color: white;
+  padding: 3rem 2rem;
+  text-align: center;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.hero img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 4px solid #93c5fd;
+  object-fit: cover;
+}
+header h1 {
+  font-size: 2.5rem;
+}
+.section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #60a5fa;
+}
+.card {
+  background: #1f2937;
+  padding: 2rem;
+  margin: 1.5rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+body.light-mode .card {
+  background: #f1f5f9;
+  color: #1e293b;
+}
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.7);
+}
+.reviews blockquote {
+  font-style: italic;
+  color: #cbd5e1;
+}
+
+body.light-mode .reviews blockquote{
+  color: #0f172a;
+}
+
+.reviews cite {
+  font-weight: bold;
+  color: #93c5fd;
+}
+
+body.light-mode .reviews cite{
+  color: #031e5e;
+}
+
+.contact-form {
+  position: relative;
+  border-radius: 1rem;
+  padding: 0.2rem;
+  overflow: hidden;
+}
+.contact-form::before {
+  content: '';
+position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 150%;
+  height: 150%;
+  background: linear-gradient(60deg, #60a5fa, #3b82f6, #1e40af, #60a5fa);
+  background-size: 300% 300%;
+  animation: neon-border 5s linear infinite;
+  z-index: -1;
+  filter: blur(10px);
+}
+@keyframes neon-border {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+.contact-form form {
+  position: relative;
+  z-index: 2;
+  background: #0f172a;
+  border-radius: 1rem;
+  padding: 2rem;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 1rem;
+  margin-top: 0.75rem;
+  margin-bottom: 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #032c8b60;
+  color: #e0e7ff;
+}
+body.light-mode .contact-form form {
+  background: #e2e8f0;
+}
+body.light-mode .contact-form input,
+body.light-mode .contact-form textarea {
+  background: #f8fafc;
+  color: #1e293b;
+}
+.contact-form button {
+  background: #2563eb;
+  color: white;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.3s ease;
+}
+.contact-form button:hover {
+  background: #1d4ed8;
+}
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #0f172a;
+  color: #cbd5e1;
+}
